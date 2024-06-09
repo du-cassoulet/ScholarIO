@@ -1,0 +1,10 @@
+server/node_modules/**
+server/bun.lockb
+server/.env
+
+website/node_modules/**
+website/.next/**
+website/package-lock.json
+
+app/node_modules/**
+app/package-lock.json
