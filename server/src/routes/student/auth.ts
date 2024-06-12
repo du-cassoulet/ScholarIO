@@ -6,7 +6,7 @@ export default new Elysia({ prefix: "/auth" })
   .use(jwt({ name: "jwt", secret: Bun.env.JWT_SECRET! }))
   .post(
     "/register",
-    async ({ body, set, jwt, cookie: { auth }, error }) => {
+    async ({ body, set, jwt, error }) => {
       const { first_name, last_name, email, password, parent_id } = body;
 
       if (await Student.exists({ email })) {
@@ -32,16 +32,9 @@ export default new Elysia({ prefix: "/auth" })
       await user.save();
       await parent.save();
 
-      auth.set({
-        value: await jwt.sign({ id: user.id, role: Role.Student }),
-        httpOnly: true,
-        maxAge: 604800,
-        path: "/",
-      });
-
       set.status = 201;
 
-      return { response: "OK" };
+      return { response: await jwt.sign({ id: user.id, role: Role.Student }) };
     },
     {
       body: t.Object({
@@ -49,7 +42,7 @@ export default new Elysia({ prefix: "/auth" })
         last_name: t.String({ minLength: 2, maxLength: 48 }),
         email: t.String({ format: "email", minLength: 3, maxLength: 256 }),
         password: t.String({ minLength: 8, maxLength: 256 }),
-        parent_id: t.String({ format: "uuid" }),
+        parent_id: t.String(),
       }),
       response: t.Object({
         response: t.String(),

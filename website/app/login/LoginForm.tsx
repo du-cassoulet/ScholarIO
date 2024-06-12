@@ -3,6 +3,7 @@
 import React, { useState, type FormEvent } from "react";
 import styles from "./page.module.scss";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useCookies } from "next-client-cookies";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,6 +11,8 @@ export default function LoginForm() {
     email: "",
     password: "",
   });
+
+  const cookies = useCookies();
 
   function toggleShowPassword() {
     setShowPassword(!showPassword);
@@ -37,7 +40,6 @@ export default function LoginForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
-      credentials: "include",
     });
 
     if (res.status === 401) {
@@ -51,7 +53,16 @@ export default function LoginForm() {
     }
 
     setErrors({ email: "", password: "" });
-    window.location.reload();
+
+    const { response: token }: { response: string } = await res.json();
+
+    cookies.set("token", token, {
+      expires: 60 * 60 * 24 * 7,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+
+    window.location.href = "/";
   }
 
   return (

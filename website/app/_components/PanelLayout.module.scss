@@ -1,0 +1,105 @@
+.main {
+  display: flex;
+
+  $sidebarWidth: 16.5rem;
+
+  .sidebar {
+    width: 16.5rem;
+    background: var(--background-secondary);
+    height: 100dvh;
+
+    .tabList {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1rem;
+      padding-right: 0;
+      list-style: none;
+      height: 100%;
+
+      li {
+        &:last-child {
+          margin-top: auto;
+        }
+
+        .tab {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.5rem;
+          text-decoration: none;
+          color: var(--tab-text-color);
+          border-radius: 50px 0 0 50px;
+          transition: background 200ms;
+
+          &:hover,
+          &.active {
+            background: var(--background-tertiary);
+          }
+
+          .iconContainer {
+            $size: 2.6rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $size;
+            height: $size;
+            border-radius: 50%;
+            background: var(--icon-container-color);
+
+            .icon {
+              $size: 1.4rem;
+
+              width: $size;
+              height: $size;
+              color: #465ee5;
+            }
+          }
+
+          .tabName {
+            font-size: 0.9rem;
+            font-weight: 500;
+          }
+
+          .tabSubname {
+            font-size: 0.65rem;
+            color: #a6a7ee;
+          }
+        }
+      }
+    }
+  }
+
+  .pageContent {
+    height: 100dvh;
+    width: calc(100% - $sidebarWidth);
+    display: flex;
+    flex-direction: column;
+
+    .navbar {
+      padding-inline: 1.5rem;
+      background: #465ee5;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 3.5rem;
+
+      .title {
+        font-size: 1.2rem;
+        color: #ffffff;
+      }
+
+      .subtitle {
+        font-size: 0.75rem;
+        color: #b1b3ff;
+      }
+    }
+
+    .content {
+      border-left: 1px solid var(--border-color);
+      min-height: calc(100dvh - 4.5rem);
+      width: 100%;
+    }
+  }
+}

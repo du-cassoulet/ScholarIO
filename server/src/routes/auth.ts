@@ -4,9 +4,9 @@ import { Parent, Role, School, Student, Teacher } from "../models";
 
 export default new Elysia({ prefix: "/auth" })
   .use(jwt({ name: "jwt", secret: Bun.env.JWT_SECRET! }))
-  .get("/", async ({ cookie: { auth }, jwt, error }) => {
-    const res = await jwt.verify(auth.value);
-    if (!res) return error(401, "Unauthorized");
+  .get("/", async ({ jwt, error, headers }) => {
+    const res = await jwt.verify(headers.authorization);
+    if (!res) return error(401, { message: "Unauthorized" });
 
     let user: any;
 
@@ -28,21 +28,22 @@ export default new Elysia({ prefix: "/auth" })
         break;
 
       default:
-        return error(401, "Unauthorized");
+        return error(500, { message: "Internal server error" });
     }
 
-    if (!user) return error(404, "User not found");
+    if (!user) return error(404, { message: "User not found" });
     return { role: res.role, ...user.toJSON() };
   })
   .post(
     "/login",
-    async ({ body, jwt, cookie: { auth }, error }) => {
+    async ({ body, jwt, error }) => {
       const { email, password } = body;
 
-      let user: any = await Teacher.findOne({ email });
-      user ||= await Parent.findOne({ email });
-      user ||= await Student.findOne({ email });
-      user ||= await School.findOne({ email });
+      let user: any =
+        (await Teacher.findOne({ email })) ||
+        (await Parent.findOne({ email })) ||
+        (await Student.findOne({ email })) ||
+        (await School.findOne({ email }));
 
       if (!user || !user.verifyPassword(password)) {
         return error(401, "Invalid email or password");
@@ -55,14 +56,7 @@ export default new Elysia({ prefix: "/auth" })
       else if (user instanceof School) role = Role.School;
       else return error(500, "Internal server error");
 
-      auth.set({
-        value: await jwt.sign({ id: user.id, role }),
-        httpOnly: true,
-        maxAge: 604800,
-        path: "/",
-      });
-
-      return { response: "OK" };
+      return { response: await jwt.sign({ id: user.id, role }) };
     },
     {
       body: t.Object({

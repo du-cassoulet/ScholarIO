@@ -1,0 +1,78 @@
+.assignmentsContent {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+
+  .assignmentsDay {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    .assignmentDayLabel {
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--header-color);
+    }
+
+    .assignmentCount {
+      font-size: 0.9rem;
+      color: var(--tab-text-color);
+    }
+
+    .assignment {
+      background: var(--background-secondary);
+      padding: 1rem;
+      max-width: 60dvw;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      transition: opacity 200ms;
+
+      &:has(.doneCheckbox:checked) {
+        opacity: 0.5;
+        user-select: none;
+      }
+
+      .headRow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .assignmentColor {
+          height: 0.75rem;
+          width: 0.75rem;
+          border-radius: 0.2rem;
+        }
+
+        .assignmentHeader {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: var(--header-color);
+        }
+
+        .isGraded {
+          font-size: 0.8rem;
+          color: #c41137;
+        }
+      }
+
+      .assignmentDescription {
+        font-size: 0.9rem;
+        color: var(--tab-text-color);
+        margin-top: 0.75rem;
+      }
+
+      .assignmentTeacher {
+        font-size: 0.8rem;
+        color: #a6a7ee;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

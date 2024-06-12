@@ -22,16 +22,9 @@ export default new Elysia({ prefix: "/auth" })
 
       await user.save();
 
-      auth.set({
-        value: await jwt.sign({ id: user.id, role: Role.Parent }),
-        httpOnly: true,
-        maxAge: 604800,
-        path: "/",
-      });
-
       set.status = 201;
 
-      return { response: "OK" };
+      return { response: await jwt.sign({ id: user.id, role: Role.Parent }) };
     },
     {
       body: t.Object({

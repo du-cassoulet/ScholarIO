@@ -10,6 +10,7 @@
 [] Actus
 [] Sanctions
 [] Devoirs
+[] Winstreak
 
 ### V2
 
@@ -34,6 +35,7 @@
 [] Actus
 [] Sanctions
 [] Devoirs
+[] Winstreak
 
 ### V2
 
