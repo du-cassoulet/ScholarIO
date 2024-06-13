@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Scholario",
+  title: "ScholarIO",
 };
 
 export default function RootLayout({

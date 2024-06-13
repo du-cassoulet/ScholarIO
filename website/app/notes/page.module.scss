@@ -1,0 +1,84 @@
+.notesContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+
+  .subject {
+    background: var(--background-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid;
+    max-width: 60dvw;
+
+    .subjectHeader {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--background-tertiary);
+
+      .textHeader {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .averageContainer {
+          height: 1.7rem;
+          padding-inline: 0.7rem;
+          border-radius: 0.85rem;
+          display: flex;
+          align-items: center;
+          font-size: 0.9rem;
+          background-color: var(--event-background-color);
+          color: var(--tab-text-color);
+          font-weight: 500;
+        }
+
+        .subjectName {
+          color: var(--header-color);
+        }
+      }
+
+      .detailRow {
+        font-size: 0.8rem;
+        font-style: italic;
+        color: #a6a7ee;
+      }
+    }
+
+    .notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      padding: 1rem;
+
+      .note {
+        display: flex;
+        align-items: baseline;
+        font-size: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--tab-text-color);
+
+        .points {
+          font-size: 0.7rem;
+        }
+
+        .coefficient {
+          font-size: 0.6rem;
+          margin-bottom: auto;
+          margin-left: 2px;
+        }
+
+        .newNote {
+          color: #465ee5;
+          transform: translateY(0.15rem) scale(1.1);
+          margin-right: 0.2rem;
+        }
+      }
+    }
+  }
+}

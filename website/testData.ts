@@ -35,6 +35,9 @@ export type Note = {
 export type Subject = {
   name: string;
   coefficient: number;
+  minimumAverage: number;
+  maximumAverage: number;
+  color: string;
   notes: Note[];
 };
 
@@ -91,10 +94,13 @@ export const assignments: Assignment[] = [
   },
 ];
 
-export const notes: Subject[] = [
+export const subjects: Subject[] = [
   {
     name: "Mathématiques",
     coefficient: 3,
+    minimumAverage: 5.89,
+    maximumAverage: 18.8,
+    color: "#f21f43",
     notes: [
       {
         title: "Additions",
@@ -110,7 +116,7 @@ export const notes: Subject[] = [
         title: "Fractions",
         evaluationDate: moment().startOf("day").subtract(1, "day"),
         createdAt: moment().startOf("day").subtract(1, "day"),
-        grade: 14,
+        grade: 8,
         average: 8.79,
         max: 16.75,
         min: 3,
@@ -121,6 +127,9 @@ export const notes: Subject[] = [
   {
     name: "Français",
     coefficient: 2,
+    minimumAverage: 7.25,
+    maximumAverage: 18.5,
+    color: "#1f50f2",
     notes: [
       {
         title: "Dictée",

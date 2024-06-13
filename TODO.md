@@ -4,25 +4,25 @@
 
 ### V1
 
-[] Notes
-[] Challenges
-[] Messagerie
-[] Actus
-[] Sanctions
-[] Devoirs
-[] Winstreak
+- [] Notes
+- [] Challenges
+- [] Messagerie
+- [] Actus
+- [] Sanctions
+- [] Devoirs
+- [] Winstreak
 
 ### V2
 
-[] Groupe de Classe
-[] Programmation de visioconférences
-[] IA de recommendation de focus
+- [] Groupe de Classe
+- [] Programmation de visioconférences
+- [] IA de recommendation de focus
 
 ## Fonctionnalitées secondaires
 
-[] Login/Register
-[] Paiment
-[] Sécurisation
+- [] Login/Register
+- [] Paiment
+- [] Sécurisation
 
 # Site Web
 
@@ -30,26 +30,26 @@
 
 ### V1
 
-[] Notes
-[] Challenges
-[] Messagerie
-[] Actus
-[] Sanctions
-[] Devoirs
-[] Winstreak
+- [] Notes
+- [] Challenges
+- [] Messagerie
+- [] Actus
+- [] Sanctions
+- [] Devoirs
+- [] Winstreak
 
 ### V2
 
-[] Groupe de Classe
-[] Programmation de visioconférences
-[] IA de recommendation de focus
+- [] Groupe de Classe
+- [] Programmation de visioconférences
+- [] IA de recommendation de focus
 
 ## Fonctionnalitées secondaires
 
-[] Login/Register
-[] Paiment
-[] Sécurisation
+- [] Login/Register
+- [] Paiment
+- [] Sécurisation
 
 # Secondaire
 
-[] Site web de présentation
+- [] Site web de présentation

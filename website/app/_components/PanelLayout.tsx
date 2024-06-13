@@ -12,6 +12,7 @@ import { BiSolidMessageAlt } from "react-icons/bi";
 import { FaFlagCheckered, FaBook, FaCalendarAlt } from "react-icons/fa";
 import { MdStickyNote2 } from "react-icons/md";
 import SidebarTab from "./SidebarTab";
+import { HiUserGroup } from "react-icons/hi2";
 
 type PanelLayoutProps = {
   children?: ReactNode;
@@ -37,14 +38,19 @@ export default function PanelLayout({
               icon={<GoHomeFill className={styles.icon} />}
             />
             <SidebarTab
-              name="Écoles"
-              href="/schools"
+              name="Professeurs"
+              href="/teachers"
               icon={<PiChalkboardTeacherFill className={styles.icon} />}
             />
             <SidebarTab
               name="Élèves"
               href="/students"
               icon={<PiStudentFill className={styles.icon} />}
+            />
+            <SidebarTab
+              name="Classes"
+              href="/classes"
+              icon={<HiUserGroup className={styles.icon} />}
             />
             <SidebarTab
               name="Paramètres"

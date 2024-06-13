@@ -18,6 +18,7 @@
   --event-background-color: #ffffff;
   --planning-border-color: #e7e7ff;
   --planning-header-border-color: #dbdbff;
+  --checkbox-border-color: #c8c9ff;
 }
 
 .dark {
@@ -33,6 +34,7 @@
   --event-background-color: #2c2c2e;
   --planning-border-color: #262627;
   --planning-header-border-color: transparent;
+  --checkbox-border-color: #3b3d4c;
 }
 
 body {
@@ -45,7 +47,7 @@ body {
     --active: #275efe;
     --active-inner: #fff;
     --focus: 2px rgba(39, 94, 254, 0.3);
-    --border: var(--event-background-color);
+    --border: var(--checkbox-border-color);
     --border-hover: #275efe;
     --background: transparent;
     --disabled: #f6f8ff;
