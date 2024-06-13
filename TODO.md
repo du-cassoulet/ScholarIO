@@ -16,6 +16,7 @@
 
 [] Groupe de Classe
 [] Programmation de visioconférences
+[] IA de recommendation de focus
 
 ## Fonctionnalitées secondaires
 
@@ -41,6 +42,7 @@
 
 [] Groupe de Classe
 [] Programmation de visioconférences
+[] IA de recommendation de focus
 
 ## Fonctionnalitées secondaires
 
